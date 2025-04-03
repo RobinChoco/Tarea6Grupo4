@@ -1,1 +1,8 @@
-# created by virtualenv automatically
+# Ignorar archivos y carpetas específicas en lugar de todo el proyecto
+# Ignorar archivos de PyCharm
+.idea/
+# Ignorar archivos compilados de Python
+__pycache__/
+*.pyc
+# Ignorar archivos de dependencias
+venv/

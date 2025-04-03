@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados." />
+    <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment=".">
+      <change afterPath="$PROJECT_DIR$/.venv/RecursosTarea/segoe-ui-emoji.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Tarea6Grupo4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tarea6Grupo4.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,12 +65,13 @@
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/alefe/OneDrive/Escritorio/Desarrollo de Aplicaciones/Tarea6Grupo4/.venv",
+    "last_opened_file_path": "C:/Users/robfu/PycharmProjects/Tarea6Grupo4/.venv/RecursosTarea",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\robfu\PycharmProjects\Tarea6Grupo4\.venv\RecursosTarea" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv\RecursosTarea" />
@@ -155,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743646585847</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary=".">
+      <option name="closed" value="true" />
+      <created>1743706163518</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1743706163518</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -170,9 +185,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="." />
     <MESSAGE value="Prueba de gitignore" />
     <MESSAGE value="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados." />
-    <option name="LAST_COMMIT_MESSAGE" value="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados." />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
 </project>

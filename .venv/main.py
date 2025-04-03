@@ -62,7 +62,7 @@ tiempo_tanda = time.time()
 inicio_tiempo = time.time()
 
 # ♥ Fuente de texto
-fuente = pygame.font.Font(None, 30)
+fuente = pygame.font.Font("RecursosTarea/segoe-ui-emoji.ttf", 30)
 
 def dibujar_texto(texto, x, y):
     t = fuente.render(texto, True, (255, 255, 255))

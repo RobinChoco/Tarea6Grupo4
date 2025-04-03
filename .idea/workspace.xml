@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados.">
-      <change beforePath="$PROJECT_DIR$/.idea/Tarea6Grupo4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tarea6Grupo4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/main.py" afterDir="false" />
-    </list>
+    <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +57,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Sonido",
+    "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/alefe/OneDrive/Escritorio/Desarrollo de Aplicaciones/Tarea6Grupo4/.venv",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
@@ -92,6 +87,7 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.11 (Tarea6Grupo4)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../Codigo - Python" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />

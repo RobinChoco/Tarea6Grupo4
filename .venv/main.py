@@ -4,8 +4,13 @@ import time
 import os
 from pygame import mixer
 
-# ♥ iNICIAMOS Pygame
+# ♥ Iniciamos Pygame
 pygame.init()
+
+# ♥ Iniciamos mixer para los canales de disparo
+pygame.mixer.init()
+canal_disparo = pygame.mixer.Channel(1)
+canal_explosion = pygame.mixer.Channel(2)
 
 # ♥ Definimos el Tamaño de pantalla
 ANCHO, ALTO = 800, 600
@@ -112,8 +117,8 @@ while ejecutando:
     if laser_activo:
         pantalla.blit(laser_img, (laser_x, laser_y))
         laser_y -= laser_vel
-        sonido_laser = mixer.Sound("RecursosTarea/laser.wav")
-        sonido_laser.play()
+        sonido_laser = pygame.mixer.Sound("RecursosTarea/laser.wav")
+        canal_disparo.play(sonido_laser)
         if laser_y < 0:
             laser_activo = False
 
@@ -147,8 +152,8 @@ while ejecutando:
         if laser_activo and hay_colision(meteorito["x"], meteorito["y"], laser_x, laser_y):
             explosion_meteorica(meteorito["x"],meteorito["y"])#explosion de meteorito
             meteoritos_en_pantalla.remove(meteorito)
-            sonido_colision_meteorito = mixer.Sound("RecursosTarea/explosion.mp3")
-            sonido_colision_meteorito.play()
+            sonido_colision_meteorito = pygame.mixer.Sound("RecursosTarea/explosion.mp3")
+            canal_explosion.play(sonido_colision_meteorito)
             meteoritos_destruidos += 1
             laser_activo = False
 

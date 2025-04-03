@@ -21,6 +21,7 @@ fondo = pygame.image.load("RecursosTarea/Fondo.png")
 nave_img = pygame.image.load("RecursosTarea/Nave.PNG")
 meteorito_img = pygame.image.load("RecursosTarea/Meteorito.PNG")
 laser_img = pygame.image.load("RecursosTarea/Laser.PNG")
+explode = [pygame.image.load(f"RecursosTarea/Explosion/explosion{i}R.png") for i in range(1,5)]
 
 #Sonido de Fondo
 mixer.music.load("RecursosTarea/inicio.mp3")
@@ -64,6 +65,7 @@ inicio_tiempo = time.time()
 # ♥ Fuente de texto
 fuente = pygame.font.Font("RecursosTarea/segoe-ui-emoji.ttf", 30)
 
+
 def dibujar_texto(texto, x, y):
     t = fuente.render(texto, True, (255, 255, 255))
     pantalla.blit(t, (x, y))
@@ -79,8 +81,13 @@ def hay_colision(obj1_x, obj1_y, obj2_x, obj2_y):
     distancia = ((obj1_x - obj2_x) ** 2 + (obj1_y - obj2_y) ** 2) ** 0.5
     return distancia < 50
 
+def explosion_meteorica(x,y):
+    explosion.append({"x": x, "y": y, "frame": 0})
+
 # looop
 ejecutando = True
+
+explosion=[]
 
 while ejecutando:
     clock.tick(60)
@@ -138,6 +145,7 @@ while ejecutando:
 
         # colisión con láser
         if laser_activo and hay_colision(meteorito["x"], meteorito["y"], laser_x, laser_y):
+            explosion_meteorica(meteorito["x"],meteorito["y"])#explosion de meteorito
             meteoritos_en_pantalla.remove(meteorito)
             sonido_colision_meteorito = mixer.Sound("RecursosTarea/explosion.mp3")
             sonido_colision_meteorito.play()
@@ -153,6 +161,15 @@ while ejecutando:
     dibujar_texto(f"💖 Vidas: {vidas}", 10, 10)
     dibujar_texto(f"💖 Eliminados: {meteoritos_destruidos}", 10, 40)
     dibujar_texto(f"💖 Tiempo: {int(tiempo_actual)}s", 10, 70)
+
+    for expl in explosion[:]:
+        frame= expl["frame"]
+        if frame < len(explode):
+            pantalla.blit(explode[frame], (expl["x"], expl["y"]))
+            expl["frame"] += 1
+        else:
+            explosion.remove(expl)
+
 
     pygame.display.update()
 

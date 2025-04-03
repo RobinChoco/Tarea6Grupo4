@@ -8,7 +8,7 @@ from pygame import mixer
 pygame.init()
 
 # ♥ Iniciamos mixer para los canales de disparo
-pygame.mixer.init()
+#pygame.mixer.init()
 canal_disparo = pygame.mixer.Channel(1)
 canal_explosion = pygame.mixer.Channel(2)
 
@@ -87,7 +87,7 @@ def hay_colision(obj1_x, obj1_y, obj2_x, obj2_y):
     return distancia < 50
 
 def explosion_meteorica(x,y):
-    explosion.append({"x": x, "y": y, "frame": 0})
+    explosion.append({"x": x, "y": y, "frame": 0, "ultimo_frame":0})
 
 # looop
 ejecutando = True
@@ -113,12 +113,13 @@ while ejecutando:
         laser_x = nave_x + (nave_img.get_width() // 2) - (laser_img.get_width() // 2)
         laser_y = nave_y
         laser_activo = True
+        sonido_laser = pygame.mixer.Sound("RecursosTarea/laser.wav")
+        sonido_laser.set_volume(0.4)
+        canal_disparo.play(sonido_laser)
 
     if laser_activo:
         pantalla.blit(laser_img, (laser_x, laser_y))
         laser_y -= laser_vel
-        sonido_laser = pygame.mixer.Sound("RecursosTarea/laser.wav")
-        canal_disparo.play(sonido_laser)
         if laser_y < 0:
             laser_activo = False
 
@@ -153,6 +154,7 @@ while ejecutando:
             explosion_meteorica(meteorito["x"],meteorito["y"])#explosion de meteorito
             meteoritos_en_pantalla.remove(meteorito)
             sonido_colision_meteorito = pygame.mixer.Sound("RecursosTarea/explosion.mp3")
+            sonido_colision_meteorito.set_volume(0.4)
             canal_explosion.play(sonido_colision_meteorito)
             meteoritos_destruidos += 1
             laser_activo = False
@@ -161,17 +163,22 @@ while ejecutando:
         if meteorito["y"] > ALTO:
             meteoritos_en_pantalla.remove(meteorito)
 
-    # mostrar texto informativo
+    # ♥ Mostrar texto informativo
     tiempo_actual = time.time() - inicio_tiempo
     dibujar_texto(f"💖 Vidas: {vidas}", 10, 10)
     dibujar_texto(f"💖 Eliminados: {meteoritos_destruidos}", 10, 40)
     dibujar_texto(f"💖 Tiempo: {int(tiempo_actual)}s", 10, 70)
 
+    # ♥ Explosion animada
+    vel_explosion = 100
     for expl in explosion[:]:
-        frame= expl["frame"]
-        if frame < len(explode):
-            pantalla.blit(explode[frame], (expl["x"], expl["y"]))
-            expl["frame"] += 1
+        if expl["frame"] < len(explode):
+            tiempo_actual = pygame.time.get_ticks()
+            if tiempo_actual - expl["ultimo_frame"] > vel_explosion:
+                expl["frame"] += 1
+                expl["ultimo_frame"] = tiempo_actual
+            if expl["frame"] < len(explode):
+                pantalla.blit(explode[expl["frame"]], (expl["x"], expl["y"]))
         else:
             explosion.remove(expl)
 

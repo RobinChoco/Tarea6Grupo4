@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment="Se agrega explosion animada">
-      <change beforePath="$PROJECT_DIR$/.idea/Tarea6Grupo4.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Tarea6Grupo4.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/main.py" afterDir="false" />
     </list>
@@ -36,12 +34,12 @@
     &quot;assignee&quot;: &quot;RobinChoco&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/RobinChoco/Tarea6Grupo4.git",
-    "accountId": "6053de3e-0e9b-4e7a-b151-8690053f825f"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RobinChoco/Tarea6Grupo4.git&quot;,
+    &quot;accountId&quot;: &quot;9001a9b0-4f0a-4980-88bd-1383c8098307&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/.venv/main.py" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -62,7 +60,7 @@
     "Python.main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "Gato",
+    "git-widget-placeholder": "#2 on Gato",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/robfu/PycharmProjects/Tarea6Grupo4/.venv/RecursosTarea/Explosion",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
@@ -78,10 +76,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\Proyecto\.venv\RecursosTarea" />
-      <recent name="D:\Proyecto\.venv\RecursosTarea\Explosion" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv\RecursosTarea" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv" />
       <recent name="C:\Users\robfu\PycharmProjects\Tarea6Grupo4\.venv\RecursosTarea" />
+      <recent name="C:\Users\robfu\PycharmProjects\Tarea6Grupo4" />
     </key>
   </component>
   <component name="RunManager">
@@ -109,6 +107,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.Galaxia" />
         <item itemvalue="Python.Galaxia" />
       </list>
     </recent_temporary>

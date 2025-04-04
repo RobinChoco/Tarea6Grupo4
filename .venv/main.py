@@ -201,6 +201,8 @@ while ejecutando:
     # ♥ Dibujar nave o gato temporal
     if mostrar_gato and time.time() - tiempo_gato < 1:
         pantalla.blit(gato_img, (nave_x, nave_y))
+        sonido_colision_gato = mixer.Sound("RecursosTarea/meow.mp3")
+        sonido_colision_gato.play()
     else:
         pantalla.blit(nave_img, (nave_x, nave_y))
         mostrar_gato = False

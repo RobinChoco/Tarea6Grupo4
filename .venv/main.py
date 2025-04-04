@@ -23,7 +23,7 @@ clock = pygame.time.Clock()
 # ♥ Cargamos imágenes (falta sonidos
 # y pueden cambiar las imagenes o agregar efectos de explosion)
 fondo = pygame.image.load("RecursosTarea/Fondo.png")
-nave_img = pygame.image.load("RecursosTarea/Nave.PNG")
+nave_img = pygame.image.load("RecursosTarea/NaveFF.png")
 meteorito_img = pygame.image.load("RecursosTarea/Meteorito.PNG")
 laser_img = pygame.image.load("RecursosTarea/Laser.PNG")
 explode = [pygame.image.load(f"RecursosTarea/Explosion/explosion{i}R.png") for i in range(1,5)]

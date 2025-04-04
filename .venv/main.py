@@ -35,6 +35,11 @@ explode = [pygame.image.load(f"RecursosTarea/Explosion/explosion{i}R.png") for i
 fondo_final = pygame.image.load("RecursosTarea/fondo_final.png")
 #Naves para las vidas restantes
 
+gato_img = pygame.image.load("RecursosTarea/gato.png")
+gato_img = pygame.transform.scale(gato_img, (90, 90))
+aja_img = pygame.image.load("RecursosTarea/aja.png")
+aja_img = pygame.transform.scale(aja_img, (90, 90))
+
 #Sonido de Fondo
 mixer.music.load("RecursosTarea/inicio.mp3")
 mixer.music.play(-1)
@@ -54,6 +59,7 @@ nave_vel = 2.5  #  Velocidad porque se movia muchos
                 # pixeles
 nave_img = naves_img[0]
 vidas = 5
+0
 
 # ♥ Laser
 laser_y = nave_y
@@ -104,6 +110,22 @@ ejecutando = True
 
 explosion=[]
 
+#Integracion del Gato
+mostrar_gato = False
+tiempo_gato = 0
+
+ajas_en_pantalla = []
+tiempo_ultimo_aja = time.time()
+
+def crear_aja():
+    x = random.randint(0, ANCHO - 90)
+    y = random.randint(0, 100)
+    vel_x = random.uniform(-0.4, 0.4)
+    vel_y = random.uniform(0.7, 1.0)
+    return {"x": x, "y": y, "vel_x": vel_x, "vel_y": vel_y, "vida": 2}
+
+
+
 while ejecutando:
     clock.tick(60)
     # 60 por segundos que actualiza
@@ -112,6 +134,48 @@ while ejecutando:
     for evento in pygame.event.get():
         if evento.type == pygame.QUIT:
             ejecutando = False
+    # ♥ Generar aja cada 10 segundos
+    if time.time() - tiempo_ultimo_aja > 10:
+        ajas_en_pantalla.append(crear_aja())
+        tiempo_ultimo_aja = time.time()
+
+    # ♥ Mover y dibujar ajas
+    for aja in ajas_en_pantalla[:]:
+        aja["x"] += aja["vel_x"]
+        aja["y"] += aja["vel_y"]
+        pantalla.blit(aja_img, (aja["x"], aja["y"]))
+
+        # Colisión con la nave
+        if hay_colision(aja["x"], aja["y"], nave_x, nave_y):
+            sonido_colision_nave = mixer.Sound("RecursosTarea/choque.ogg")
+            sonido_colision_nave.play()
+            vidas -= 1
+            ajas_en_pantalla.remove(aja)
+            mostrar_gato = True
+            tiempo_gato = time.time()
+            continue
+
+        # Colisión con láser
+        if laser_activo and hay_colision(aja["x"], aja["y"], laser_x, laser_y):
+            if aja["vida"] == 2:
+                # ♥ Primer impacto → teletransporte
+                aja["x"] = random.randint(0, ANCHO - 90)
+                aja["y"] = random.randint(0, 100)
+                aja["vida"] -= 1
+            else:
+                # ♥ Segundo impacto → destruir
+                explosion_meteorica(aja["x"], aja["y"])
+                ajas_en_pantalla.remove(aja)
+                sonido_colision_meteorito = pygame.mixer.Sound("RecursosTarea/explosion.mp3")
+                sonido_colision_meteorito.set_volume(0.4)
+                canal_explosion.play(sonido_colision_meteorito)
+                meteoritos_destruidos += 1
+            laser_activo = False
+
+
+        # Eliminar si sale de pantalla
+        if aja["y"] > ALTO:
+            ajas_en_pantalla.remove(aja)
 
     # ♥ Movimiento
     teclas = pygame.key.get_pressed()
@@ -133,15 +197,18 @@ while ejecutando:
         if laser_y < 0:
             laser_activo = False
 
-    # ♥ Dibujar la nave
-    pantalla.blit(nave_img, (nave_x, nave_y))
+
+    # ♥ Dibujar nave o gato temporal
+    if mostrar_gato and time.time() - tiempo_gato < 1:
+        pantalla.blit(gato_img, (nave_x, nave_y))
+    else:
+        pantalla.blit(nave_img, (nave_x, nave_y))
+        mostrar_gato = False
 
     # ♥ Generar meteoritos por tandas (una tras otra)
-    if time.time() - tiempo_tanda > 2 and meteoritos_totales < MAX_METEORITOS:
+    if time.time() - tiempo_tanda > 2 and vidas > 0 and meteoritos_destruidos < MAX_METEORITOS:
         for _ in range(meteoritos_por_tanda):
-            if meteoritos_totales < MAX_METEORITOS:
-                meteoritos_en_pantalla.append(crear_meteorito())
-                meteoritos_totales += 1
+            meteoritos_en_pantalla.append(crear_meteorito())
         tiempo_tanda = time.time()
 
     # ♥ Mover y dibujar meteoritos
@@ -151,7 +218,7 @@ while ejecutando:
 
         pantalla.blit(meteorito_img, (meteorito["x"], meteorito["y"]))
 
-        # colisión con nave
+        # ♥ Aparece el gato dramatico al tener una colision
         if hay_colision(meteorito["x"], meteorito["y"], nave_x, nave_y):
             sonido_colision_nave = mixer.Sound("RecursosTarea/choque.ogg")
             sonido_colision_nave.play()
@@ -168,7 +235,12 @@ while ejecutando:
                 nave_img = naves_img[4]
 
             meteoritos_en_pantalla.remove(meteorito)
+
+            # Activar imagen del gato
+            mostrar_gato = True
+            tiempo_gato = time.time()
             continue
+
 
         # colisión con láser
         if laser_activo and hay_colision(meteorito["x"], meteorito["y"], laser_x, laser_y):

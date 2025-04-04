@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment="Se agrega explosion animada" />
+    <list default="true" id="6761e0d3-cba6-4cc7-a9a7-b94a283df84f" name="Changes" comment="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados.">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,19 +60,18 @@
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Version__Nave&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/robfu/PycharmProjects/Tarea6Grupo4/.venv/RecursosTarea/Explosion&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/alefe/OneDrive/Escritorio/Desarrollo de Aplicaciones/Tarea6Grupo4/.venv/RecursosTarea&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\robfu\PycharmProjects\Tarea6Grupo4\.venv\RecursosTarea\Explosion" />
-      <recent name="C:\Users\robfu\PycharmProjects\Tarea6Grupo4\.venv\RecursosTarea" />
+      <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv\RecursosTarea" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv" />
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4" />
-      <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv\RecursosTarea" />
+      <recent name="C:\Users\robfu\PycharmProjects\Tarea6Grupo4\.venv" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\alefe\OneDrive\Escritorio\Desarrollo de Aplicaciones\Tarea6Grupo4\.venv\RecursosTarea" />
@@ -156,31 +158,15 @@
       <option name="project" value="LOCAL" />
       <updated>1743646585847</updated>
     </task>
-    <task id="LOCAL-00005" summary=".">
+    <task id="LOCAL-00005" summary="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados.">
       <option name="closed" value="true" />
-      <created>1743706163518</created>
+      <created>1743728544560</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1743706163518</updated>
+      <updated>1743728544560</updated>
     </task>
-    <task id="LOCAL-00006" summary="Se agrega fuente segoe para probar.">
-      <option name="closed" value="true" />
-      <created>1743707822957</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1743707822957</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Se agrega explosion animada">
-      <option name="closed" value="true" />
-      <created>1743712219255</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1743712219255</updated>
-    </task>
-    <option name="localTasksCounter" value="8" />
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -195,11 +181,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="." />
     <MESSAGE value="Prueba de gitignore" />
     <MESSAGE value="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados." />
-    <MESSAGE value="." />
-    <MESSAGE value="Se agrega fuente segoe para probar." />
-    <MESSAGE value="Se agrega explosion animada" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega explosion animada" />
+    <option name="LAST_COMMIT_MESSAGE" value="Codigo Proyecto, velocidad de laser a 14, archivos guardados en REcursosTarea y refactorizados." />
   </component>
 </project>

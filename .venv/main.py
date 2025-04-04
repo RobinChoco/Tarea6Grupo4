@@ -23,15 +23,22 @@ clock = pygame.time.Clock()
 # ♥ Cargamos imágenes (falta sonidos
 # y pueden cambiar las imagenes o agregar efectos de explosion)
 fondo = pygame.image.load("RecursosTarea/Fondo.png")
-nave_img = pygame.image.load("RecursosTarea/NaveFF.png")
+naves_img = [pygame.image.load("RecursosTarea/NaveFF.png"),
+            pygame.image.load("RecursosTarea/nave4.png"),
+            pygame.image.load("RecursosTarea/nave3.png"),
+            pygame.image.load("RecursosTarea/nave2.png"),
+            pygame.image.load("RecursosTarea/nave1.png")
+            ]
 meteorito_img = pygame.image.load("RecursosTarea/Meteorito.PNG")
 laser_img = pygame.image.load("RecursosTarea/Laser.PNG")
 explode = [pygame.image.load(f"RecursosTarea/Explosion/explosion{i}R.png") for i in range(1,5)]
+fondo_final = pygame.image.load("RecursosTarea/fondo_final.png")
+#Naves para las vidas restantes
+
 gato_img = pygame.image.load("RecursosTarea/gato.png")
 gato_img = pygame.transform.scale(gato_img, (90, 90))
 aja_img = pygame.image.load("RecursosTarea/aja.png")
 aja_img = pygame.transform.scale(aja_img, (90, 90))
-
 
 #Sonido de Fondo
 mixer.music.load("RecursosTarea/inicio.mp3")
@@ -39,15 +46,18 @@ mixer.music.play(-1)
 mixer.music.set_volume(0.3)
 
 # ♥ Ajustamos tamaños
-nave_img = pygame.transform.scale(nave_img, (90, 90))
+naves_img = [pygame.transform.scale(img, (90, 90)) for img in naves_img]
 meteorito_img = pygame.transform.scale(meteorito_img, (55, 55))
 laser_img = pygame.transform.scale(laser_img, (20, 80))
+
+
 
 # ♥data del  Jugador
 nave_x = 368
 nave_y = 500
 nave_vel = 2.5  #  Velocidad porque se movia muchos
                 # pixeles
+nave_img = naves_img[0]
 vidas = 5
 0
 
@@ -213,6 +223,17 @@ while ejecutando:
             sonido_colision_nave = mixer.Sound("RecursosTarea/choque.ogg")
             sonido_colision_nave.play()
             vidas -= 1
+            if vidas == 5:
+                nave_img = naves_img[0]
+            elif vidas == 4:
+                nave_img = naves_img[1]
+            elif vidas == 3:
+                nave_img = naves_img[2]
+            elif vidas == 2:
+                nave_img = naves_img[3]
+            elif vidas == 1:
+                nave_img = naves_img[4]
+
             meteoritos_en_pantalla.remove(meteorito)
 
             # Activar imagen del gato
@@ -259,7 +280,7 @@ while ejecutando:
 
     # del juego
     if vidas <= 0 or meteoritos_destruidos >= MAX_METEORITOS:
-        pantalla.fill((0, 0, 0))
+        pantalla.blit(fondo_final, (0, 0))
         dibujar_texto("💥 ¡Fin del Juego! 💥", 300, 250)
         dibujar_texto(f"💔 Vidas perdidas: {5 - vidas}", 300, 290)
         dibujar_texto(f"💥 Meteoritos eliminados: {meteoritos_destruidos}", 300, 320)

@@ -27,6 +27,8 @@ nave_img = pygame.image.load("RecursosTarea/NaveFF.png")
 meteorito_img = pygame.image.load("RecursosTarea/Meteorito.PNG")
 laser_img = pygame.image.load("RecursosTarea/Laser.PNG")
 explode = [pygame.image.load(f"RecursosTarea/Explosion/explosion{i}R.png") for i in range(1,5)]
+gato_img = pygame.image.load("RecursosTarea/gato.png")
+gato_img = pygame.transform.scale(gato_img, (90, 90))
 
 #Sonido de Fondo
 mixer.music.load("RecursosTarea/inicio.mp3")
@@ -94,6 +96,10 @@ ejecutando = True
 
 explosion=[]
 
+#Integracion del Gato
+mostrar_gato = False
+tiempo_gato = 0
+
 while ejecutando:
     clock.tick(60)
     # 60 por segundos que actualiza
@@ -123,15 +129,18 @@ while ejecutando:
         if laser_y < 0:
             laser_activo = False
 
-    # ♥ Dibujar la nave
-    pantalla.blit(nave_img, (nave_x, nave_y))
+
+    # ♥ Dibujar nave o gato temporal
+    if mostrar_gato and time.time() - tiempo_gato < 1:
+        pantalla.blit(gato_img, (nave_x, nave_y))
+    else:
+        pantalla.blit(nave_img, (nave_x, nave_y))
+        mostrar_gato = False
 
     # ♥ Generar meteoritos por tandas (una tras otra)
-    if time.time() - tiempo_tanda > 2 and meteoritos_totales < MAX_METEORITOS:
+    if time.time() - tiempo_tanda > 2 and vidas > 0 and meteoritos_destruidos < MAX_METEORITOS:
         for _ in range(meteoritos_por_tanda):
-            if meteoritos_totales < MAX_METEORITOS:
-                meteoritos_en_pantalla.append(crear_meteorito())
-                meteoritos_totales += 1
+            meteoritos_en_pantalla.append(crear_meteorito())
         tiempo_tanda = time.time()
 
     # ♥ Mover y dibujar meteoritos
@@ -141,13 +150,18 @@ while ejecutando:
 
         pantalla.blit(meteorito_img, (meteorito["x"], meteorito["y"]))
 
-        # colisión con nave
+        # ♥ Aparece el gato dramatico al tener una colision
         if hay_colision(meteorito["x"], meteorito["y"], nave_x, nave_y):
             sonido_colision_nave = mixer.Sound("RecursosTarea/choque.ogg")
             sonido_colision_nave.play()
             vidas -= 1
             meteoritos_en_pantalla.remove(meteorito)
+
+            # Activar imagen del gato
+            mostrar_gato = True
+            tiempo_gato = time.time()
             continue
+
 
         # colisión con láser
         if laser_activo and hay_colision(meteorito["x"], meteorito["y"], laser_x, laser_y):
